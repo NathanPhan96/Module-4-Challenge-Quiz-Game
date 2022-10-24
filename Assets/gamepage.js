@@ -97,7 +97,7 @@ function startTimer() {
       timeLeft --;
     timerElement.textContent = timeLeft;
     }, 1000);
-  }
+  };
 
 
   function startGame() {
@@ -109,7 +109,7 @@ function startTimer() {
 
   getNewQuestions = () => {
     if(timeLeft <= 0 || availableQuestions.length === 0 || questionCounter > Max_Questions) {
-        endGame();
+      endGame();
     }
 
     questionCounter ++;
