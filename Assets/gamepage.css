@@ -86,9 +86,6 @@ button:hover {
     cursor: pointer;
 }
 
-.hide {
-    display: none;
-}
 
 .choice-prefix {
 padding: .5rem 1.5rem;
@@ -97,6 +94,7 @@ font-weight: bolder;
 font-size: 30px;
 align-items: center;
 }
+
 .choice-text {
     padding-left: 30px;
     padding-top: 10px;
