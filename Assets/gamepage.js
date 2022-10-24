@@ -96,6 +96,7 @@ startGame = () => {
         localStorage.setItem('recentScore', score);
         return window.location.assign("../results.html")
     }
+    
     questionCounter ++;
     const questionOrder = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionOrder];
