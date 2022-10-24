@@ -69,3 +69,21 @@ const myQuestions = [
       correctAnswer: "d"
       },
     ];
+
+    function init() {
+        getHighScores();
+    }
+
+    function setHighScores() {
+    
+    }
+
+    function updateHighScores() {
+
+    }
+        function resetQuiz() {
+            highScores = 0;
+            setHighScores()
+        }
+
+        resetButton.addEventListener("click", resetQuiz)
