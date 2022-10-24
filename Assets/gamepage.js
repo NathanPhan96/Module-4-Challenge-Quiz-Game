@@ -1,3 +1,6 @@
+const qs = function (tag){
+    return document.getElementById(tag);
+  };
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 var timerElement = document.querySelector(".timer-count");
@@ -6,9 +9,10 @@ var currentQuestion = {}
 var questionCounter = 0;
 var acceptingAnswer = false
 var availableQuestions = [];
-var timer;
+var timeLeft = 120;
 var timerCount;
 var score = 0;
+const gameContainer = qs("game");
 
 var questions = [
     { 
@@ -83,8 +87,21 @@ var questions = [
 const Correct_Points = 10;
 const Max_Questions = 5;
 
+startButton.addEventListener("click", startGame);
+console.log ("hi");
 
-startGame = () => {
+function startTimer() {
+    timerElement.textContent = timeLeft;
+    timer = setInterval(() => {
+      timeLeft --;
+    timerElement.textContent = timeLeft;
+    }, 1000);
+  }
+
+
+  function startGame() {
+    startButton.classlist.add("hide");
+    gameContainer.classlist.remove("hide");
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
@@ -92,11 +109,11 @@ startGame = () => {
   };
 
   getNewQuestions = () => {
-    if(availableQuestions.length === 0 || questionCounter > Max_Questions) {
+    if(availableQuestions.length === 0 || questionCounter > Max_Questions || timeLeft <= 0) {
         localStorage.setItem('recentScore', score);
         return window.location.assign("../results.html")
     }
-    
+
     questionCounter ++;
     const questionOrder = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionOrder];
@@ -122,7 +139,13 @@ startGame = () => {
      var valueToApply = "incorrect";
      if ( selectedAnswer == currentQuestion.answer){
        valueToApply = "correct";
-     };
+    }else {
+        if ( selectedAnswer == currentQuestion.answer){
+          valueToApply = "incorrect";
+          timeLeft -= 10;
+        }
+        }
+        ;
    
      if (valueToApply === "correct"){
         incrementScore(Correct_Points)
@@ -138,5 +161,5 @@ startGame = () => {
         console.log(score);
       };
    
-    startGame();
+   
    
