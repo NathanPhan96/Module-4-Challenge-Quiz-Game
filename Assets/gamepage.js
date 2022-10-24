@@ -137,7 +137,7 @@ function startTimer() {
      var valueToApply = "incorrect";
      if ( selectedAnswer == currentQuestion.answer){
        valueToApply = "correct";
-    }else {
+    } else {
         valueToApply = "incorrect";
         timeLeft -= 10;
       };
