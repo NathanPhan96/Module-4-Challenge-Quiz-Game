@@ -93,7 +93,8 @@ startGame = () => {
 
   getNewQuestions = () => {
     if(availableQuestions.length === 0 || questionCounter > Max_Questions) {
-        return window.location.assign("../highscore.html")
+        localStorage.setItem('recentScore', score);
+        return window.location.assign("../results.html")
     }
     questionCounter ++;
     const questionOrder = Math.floor(Math.random() * availableQuestions.length);

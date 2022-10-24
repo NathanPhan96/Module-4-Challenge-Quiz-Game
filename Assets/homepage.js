@@ -9,7 +9,7 @@ gamePage.addEventListener("click", function() {
     });
 
 function goToHighScorePage() {
-    window.location.assign("../highscore.html");
+    window.location.assign("../highscores.html");
 }
 
 highScores.addEventListener("click", function() {
