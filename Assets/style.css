@@ -52,7 +52,7 @@ section {
     text-align: center;
 }
 
-input:hover {
+button:hover {
     font-size: 25px;
     height: 35px;  
     background-color: crimson;
