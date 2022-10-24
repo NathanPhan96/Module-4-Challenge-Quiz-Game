@@ -1,5 +1,17 @@
 var gamePage = document.querySelector(".go-button");
-var highScores = document.querySelector(".High-scores");
+
+const highScoresList = document.getElementById("highScores");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+console.log(highScores);
+
+
+
+highScoresList.innerHTML = highScores
+
+highScores.map( score => {
+    return `<li class="high-score-list">${score.name} - ${score.score}</li>`;
+})
+.join("");
 
 function goToGamePage() {
     window.location.assign("../gamepage.html");
@@ -8,10 +20,3 @@ gamePage.addEventListener("click", function() {
     goToGamePage();
     });
 
-function goToHighScorePage() {
-    window.location.assign("../highscores.html");
-}
-
-highScores.addEventListener("click", function() {
-    goToHighScorePage();
-    });
