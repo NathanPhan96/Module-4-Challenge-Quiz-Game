@@ -29,7 +29,7 @@ var fontSize = 10,
         }
       }
       
-      
+
       setInterval(draw, 33);
 
       var gamePage = document.querySelector(".go-button");
@@ -39,6 +39,7 @@ var fontSize = 10,
       function goToGamePage() {
           window.location.assign("../gamepage.html");
       }
+      
       gamePage.addEventListener("click", function() {
           goToGamePage();
           });
