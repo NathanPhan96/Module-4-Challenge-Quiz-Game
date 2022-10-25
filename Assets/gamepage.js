@@ -6,7 +6,7 @@ var currentQuestion = {}
 var questionCounter = 0;
 var acceptingAnswer = false
 var availableQuestions = [];
-var timeleft = 5;
+var timeleft = 80;
 var score = 0;
 
 
@@ -83,6 +83,7 @@ var questions = [
 const Correct_Points = 10;
 const Max_Questions = 5;
 
+
 function endGame() {
     if (timeLeft <=0) {
   localStorage.setItem('recentScore', score);
@@ -104,14 +105,15 @@ function startTimer() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
+
     getNewQuestions();
   };
 
   getNewQuestions = () => {
-    if(timeLeft <= 0 || availableQuestions.length === 0 || questionCounter > Max_Questions) {
-      endGame();
+    if( availableQuestions.length === 0 || questionCounter > Max_Questions) {
+      localStorage.setItem('recentScore', score);
+      return window.location.assign("./results.html")
     }
-
     questionCounter ++;
     const questionOrder = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionOrder];
@@ -125,6 +127,7 @@ function startTimer() {
     availableQuestions.splice(questionOrder, 1);
 
     acceptingAnswer = true; 
+    
   };
 
   choices.forEach(choice => {
