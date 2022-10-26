@@ -10,7 +10,7 @@ header {
     align-items: center;
     margin-top: 20px;
     font-size: 60px;
-    background-color: maroon;
+    background-color: blue;
     width: 40%;
     margin-left: 30%;
     border-radius: 5px;
@@ -21,8 +21,8 @@ header {
 .timer{
     font-size: 70px;
     font-weight: bolder;
-
 }    
+
 h1 {
     font-weight: 100;
     font-size: 60px;

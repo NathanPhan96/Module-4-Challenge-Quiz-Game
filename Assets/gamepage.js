@@ -85,7 +85,7 @@ const Max_Questions = 5;
 
 
 function endGame() {
-    if (timeLeft <=0) {
+    if (timeleft <=0) {
   localStorage.setItem('recentScore', score);
   return window.location.assign("./results.html")
     };
@@ -93,11 +93,11 @@ function endGame() {
 
 
 function startTimer() {
-    timerElement.textContent = timeLeft;
+    timerElement.textContent = timeleft;
     timer = setInterval(() => {
-      timeLeft --;
-    timerElement.textContent = timeLeft;
-    if (timeLeft == 0)
+      timeleft --;
+    timerElement.textContent = timeleft;
+    if (timeleft == 0)
     clearInterval(timer);
     endGame();
     }, 1000);
@@ -147,7 +147,7 @@ function startTimer() {
        valueToApply = "correct";
     } else {
         valueToApply = "incorrect";
-        timeLeft -= 10;
+        timeleft -= 10;
       };
    
 
@@ -163,7 +163,7 @@ function startTimer() {
     
      incrementScore = num => {
         score += num;
-        console.log(score);
+    
       };
    
 startGame();
